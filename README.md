@@ -14,33 +14,109 @@
 ## Rinkeby Migration
 
 ```
-truffle migrate --network rinkeby
+truffle migrate --reset --network rinkeby
 Using network 'rinkeby'.
 
 Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0xc321dd003fb4e1451e6f67dc28162a6f94cf989975c70e7f79e775bb86b2532a
-  Migrations: 0x30a9510d210f16453b15b308a095e42423e8d7dd
+  Replacing Migrations...
+  ... 0xa54b1a091f518104177d5a663de62ad2b33174523e3c497d43d25d4e4a5f9887
+  Migrations: 0x0768e3b6daf9940e385d4e7b220304dc878ff11e
 Saving successful migration to network...
-  ... 0x5d51dea3d75b103812fe32519211560da22e42e2bc3135d0a21d4ee5dfc5fe08
+  ... 0x2d1f1fad9ad5dcc106d73b8188037e0a2285712779a9730d8e741d3337f3abe3
 Saving artifacts...
 Running migration: 2_deploy_contracts.js
-  Deploying FarmerRole...
-  ... 0xba8beef8b99d067d63b8a2009299c54995a114f1740648370e9c65763da92e76
-  FarmerRole: 0xc798983907c3f8dfda73a297aadc171f99e28011
-  Deploying DistributorRole...
-  ... 0x9a7e6b43e8f9da96b57abe0acb040a48e558b51278b4eeffb83544b144e82a6d
-  DistributorRole: 0xd5a7fd7f332216550d87e938af5a9b506d51440c
-  Deploying RetailerRole...
-  ... 0xe07a8029d1c70f5de2fa273b78a4221695c83866640ea27c4b07e179f26ffa02
-  RetailerRole: 0x5f2c9e3aa524fd9a1ee07f798ff87ce3db5c1bd4
-  Deploying ConsumerRole...
-  ... 0x23ff286d2dee7fd8e50ca372dc65b188cc1bd138fb8a38023966610292f45bc2
-  ConsumerRole: 0x9e2c9f4f1a0a29e602d521f7f7ef6ac399b7719f
-  Deploying SupplyChain...
-  ... 0x5fb4f7f9836fe3ac45c606d99cd4340d204122b6a42c292c7e650b333f1d9e21
-  SupplyChain: 0xf8da40da57ddbaafdef9ebb9555f77d6c214ab61
+  Replacing FarmerRole...
+  ... 0x07b57e4d2d0607b7a315239328a3ab2fd662b0570cd8145dd85a5c11cec7ce91
+  FarmerRole: 0xe94b575ee71e2629af824dc70ca8c86819a03741
+  Replacing DistributorRole...
+  ... 0x71617f37b38db9fdc91041ba5872a0466a741708766c0b608cfdce0372de6740
+  DistributorRole: 0xb8e3425ca7c9628b688a4d8a73f88945af5b1c90
+  Replacing RetailerRole...
+  ... 0x3216b41187cb9cd9721412607b7f0058896e2fd76fd5e8aa14cb57012fa554ff
+  RetailerRole: 0x7cfc0f7fb8b7cc10a4481b37a881431f5a15060a
+  Replacing ConsumerRole...
+  ... 0xfb0b7c910c86c4da9c1bda50a539c3f30760f9838cf6c1f2c99c4631085b0ee1
+  ConsumerRole: 0x3920d2d3f5c60b06c0acd5f43305c57a7b009e6a
+  Replacing SupplyChain...
+  ... 0xd53e9d0d67368acc282e1bbdcf4bb0aee36306a2d79d73c5c213a32a3e1eda0f
+  SupplyChain: 0x1946156e22cf5349d4a9dda6410d7873f1e64917
 Saving successful migration to network...
-  ... 0x70c4cac85b7c02115e9ba5bed4b528c1f2a7851801d69b9dcb6cdd21cd5a1a18
+  ... 0xa21ca77c0130f446a5f753f4bb7cd025761974cc1c6ff3fee2de791e18230620
 Saving artifacts...
+```
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+
+```
+Give examples (to be clarified)
+```
+
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+Clone this repository:
+
+```
+git clone https://github.com/muhammadnuri/udacity_nd_supplychain.git
+```
+
+Change directory to ```udacity_nd_supplychain``` folder and install all requisite npm packages (as listed in ```package.json```):
+
+```
+npm install
+```
+
+Launch Ganache:
+
+```
+ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
+```
+
+Your terminal should look something like this:
+
+![truffle test](images/ganache-cli.png)
+
+In a separate terminal window, Compile smart contracts:
+
+```
+truffle compile
+```
+
+Your terminal should look something like this:
+
+![truffle test](images/truffle_compile.png)
+
+This will create the smart contract artifacts in folder ```build\contracts```.
+
+Migrate smart contracts to the locally running blockchain, ganache-cli:
+
+```
+truffle migrate
+```
+
+Your terminal should look something like this:
+
+![truffle test](images/truffle_migrate.png)
+
+Test smart contracts:
+
+```
+truffle test
+```
+
+All 10 tests should pass.
+
+![truffle test](images/truffle_test.png)
+
+In a separate terminal window, launch the DApp:
+
+```
+npm run dev
 ```

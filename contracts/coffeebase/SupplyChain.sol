@@ -9,9 +9,6 @@ import '../coffeeaccesscontrol/RetailerRole.sol';
 // Define a contract 'Supplychain'
 contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, ConsumerRole {
 
-  // Define 'owner'
-  address productOwner;
-
   // Define a variable called 'upc' for Universal Product Code (UPC)
   uint  upc;
 
@@ -141,16 +138,13 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   // and set 'sku' to 1
   // and set 'upc' to 1
   constructor() public payable {
-    productOwner = msg.sender;
     sku = 1;
     upc = 1;
   }
 
   // Define a function 'kill' if required
-  function kill() public {
-    if (msg.sender == productOwner) {
-      selfdestruct(productOwner);
-    }
+  function kill() public onlyOwner {
+    selfdestruct(owner());
   }
 
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
